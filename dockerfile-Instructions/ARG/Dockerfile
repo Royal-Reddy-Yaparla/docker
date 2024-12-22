@@ -1,4 +1,4 @@
-FROM FROM almalinux:9
+FROM almalinux:9
 
 ARG username
 RUN adduser $username
