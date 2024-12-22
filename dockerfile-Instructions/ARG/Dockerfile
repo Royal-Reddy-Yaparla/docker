@@ -4,10 +4,13 @@ ARG username
 RUN adduser $username
 
 USER $username
-ARG project
-ARG environmet
-ARG team
+ARG PROJECT
+ARG ENVIRONMENT
+ARG TEAM
+ENV PROJECT = ${PROJECT}
+ENV ENVIRONMENT = ${ENVIRONMENT}
+ENV TEAM = ${TEAM}
 
-RUN echo "Project: {$project} Environmet:{$environmet} Team: {$team}"
+RUN echo "Project: ${PROJECT} Environmet:${ENVIRONMENT} Team: ${TEAM}"
 
-CMD ["sleep","120s"]
+CMD ["sleep","120"]
