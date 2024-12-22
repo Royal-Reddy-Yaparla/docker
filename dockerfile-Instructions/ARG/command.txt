@@ -1,0 +1,7 @@
+docker buildx build \
+  --tag linux:v1 \
+  --build-arg username=royal \
+  --build-arg PROJECT=fusion \
+  --build-arg ENVIRONMENT=dev \
+  --build-arg TEAM=testing \
+  .
