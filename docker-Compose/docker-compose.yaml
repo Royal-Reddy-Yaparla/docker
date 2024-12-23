@@ -17,10 +17,11 @@ services:
 
   rabbitmq:
     image: rabbitmq
+    container_name: rabbitmq
     environment:
     - RABBITMQ_DEFAULT_USER=roboshop
     - RABBITMQ_DEFAULT_PASS=roboshop123
-    
+
   catalogue:
     image: catalogue:1.0 
     container_name: catalogue
