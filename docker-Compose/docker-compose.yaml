@@ -1,0 +1,22 @@
+networks:
+  default:
+    external:
+      name: robokart
+services:
+  mongodb:
+    image: mongodb:1.0
+    container_name: mongodb
+
+  catalogue:
+    image: catalogue:1.0 
+    container_name: catalogue
+    depends_on:
+      - mongodb
+    
+  web:
+    image: web:1.0
+    container_name: web 
+    port:
+      - "80:80"
+    depends_on:
+      - catalogue
