@@ -3,10 +3,10 @@ networks:
     external:
       name: robokart
 volumes:
-  - mongodb
-  - mysql
-  - rabbitmq
-  - redis
+  mongodb: #docker volume create mongodb
+  redis:
+  mysql:
+  rabbitmq:
 services:
   mongodb:
     image: mongodb:1.0
