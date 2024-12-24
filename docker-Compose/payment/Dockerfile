@@ -10,13 +10,15 @@ WORKDIR /app
 # Copy requirements file
 COPY requirements.txt /app/
 
-# Update and install necessary packages
-RUN apt-get update && apt-get install -y \
-    python3-dev build-essential linux-headers-amd64 libpcre3-dev && \
-    rm -rf /var/lib/apt/lists/*
+# Update and install necessary packages using apk
+RUN apk add --no-cache \
+    python3-dev \
+    build-base \
+    linux-headers \
+    pcre-dev
 
 # Install Python dependencies
-RUN pip install -r requirements.txt
+RUN pip install --no-cache-dir -r requirements.txt
 
 # Copy application files
 COPY *.py /app/
