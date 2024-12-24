@@ -2,18 +2,34 @@ networks:
   default:
     external:
       name: robokart
+volumes:
+  - mongodb
+  - mysql
+  - rabbitmq
+  - redis
 services:
   mongodb:
     image: mongodb:1.0
     container_name: mongodb
-
+    volumes:
+      - type: volume
+        source: mongodb
+        target: /data/db
   redis:
     image: redis
     container_name: redis
+    volumes:
+      - type: volume
+        source: redis
+        target: /data
 
   mysql:
     image: mysql:1.0 
     container_name: mysql
+    volumes:
+      - type: volume
+        source: mysql
+        target: /var/lib/mysql
 
   rabbitmq:
     image: rabbitmq
@@ -21,6 +37,10 @@ services:
     environment:
     - RABBITMQ_DEFAULT_USER=roboshop
     - RABBITMQ_DEFAULT_PASS=roboshop123
+    volumes:
+      - type: volume
+        source: rabbitmq
+        target: /var/lib/rabbitmq
 
   catalogue:
     image: catalogue:1.0 
