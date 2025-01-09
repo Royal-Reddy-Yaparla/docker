@@ -2,7 +2,7 @@
 
 **Communication between components**
 
-<img src="./00-images/Architecture-flow.png" alt="Getting started" />
+<img src="./00-Images/Architecture-flow.png" alt="Getting started" />
 
 This document outlines the deployment process for a microservices-based application using Docker and Docker Compose. The application consists of several services, databases, and a custom network for seamless interconnectivity.
 
